@@ -1,5 +1,5 @@
 # ToggleUIStickers
-Toggles Early Access / New / VRC+ Stickers on UI Buttons
+Toggles Early Access / New / VRC+ Stickers on UI Buttons.
 
 # What is a Sticker?
 It's this smol thing on UI Buttons.
