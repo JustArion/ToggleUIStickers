@@ -1,8 +1,6 @@
 ﻿namespace Dawn.Stickers
 {
     extern alias MelonLoader3;
-    using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
     using MelonLoader3::MelonLoader;
@@ -21,21 +19,14 @@
                     //Other mods might destroy the obj completely so we remove it.
                     if (Sticker == null) { cachedVRCPlusStickers = cachedVRCPlusStickers.Where(item => item != Sticker).ToArray(); continue; }
 
-                    var y = Sticker.GetComponent<Image>();
-                    if (y != null) { y.enabled = true; continue; }
-                    
-                    Sticker.SetActive(true);
+                    Sticker.enabled = true;
                 }
                 ToggleMessage("VRC+", VRCPlusStickers.Count(), false);
-            }, () => {
-                foreach (var Sticker in VRCPlusStickers)
+            }, () => { foreach (var Sticker in VRCPlusStickers)
                 {
                     if (Sticker == null) { cachedVRCPlusStickers = cachedVRCPlusStickers.Where(item => item != Sticker).ToArray(); continue; }
 
-                    var y = Sticker.GetComponent<Image>();
-                    if (y != null) { y.enabled = false; continue; }
-                    
-                    Sticker.SetActive(false);
+                    Sticker.enabled = false;
                 }
                 ToggleMessage("VRC+", VRCPlusStickers.Count(), true);
             });
@@ -100,11 +91,7 @@
                 {
                     if (Sticker == null) { cachedNewStickers = cachedNewStickers.Where(item => item != Sticker).ToArray(); continue; }
 
-                    var y = Sticker.GetComponent<Image>();
-                    if (y != null)
-                    {
-                        y.enabled = true;
-                    }
+                    Sticker.enabled = true;
                 }
                 ToggleMessage("New", NewStickers.Count(), false);
             }, () => {
@@ -112,11 +99,7 @@
                 {
                     if (Sticker == null) { cachedNewStickers = cachedNewStickers.Where(item => item != Sticker).ToArray(); continue; }
 
-                    var y = Sticker.GetComponent<Image>();
-                    if (y != null)
-                    {
-                        y.enabled = false;
-                    }
+                    Sticker.enabled = false;
                 }
                 ToggleMessage("New", NewStickers.Count(), true);
             });
@@ -142,10 +125,11 @@
         private static PreferencesStateListener EarlyAccessStateListener;
         private static PreferencesStateListener NewStateListener;
         
-        
 
-        static GameObject[] cachedVRCPlusStickers;
-        static IEnumerable<GameObject> VRCPlusStickers=> cachedVRCPlusStickers ??= Resources.FindObjectsOfTypeAll<GameObject>().Where(o => o.name is "VRC+" or "Icon_VRC+").ToArray();
+        // static GameObject[] cachedVRCPlusStickers;
+        // static IEnumerable<GameObject> VRCPlusStickers=> cachedVRCPlusStickers ??= Resources.FindObjectsOfTypeAll<GameObject>().Where(o => o.name is "VRC+" or "Icon_VRC+").ToArray();
+        static Image[] cachedVRCPlusStickers;
+        static IEnumerable<Image> VRCPlusStickers=> cachedVRCPlusStickers ??= Resources.FindObjectsOfTypeAll<Image>().Where(o => o.name is "VRC+" or "Icon_VRC+").ToArray();
         
         static GameObject[] cachedBuildInfoStickers;
         static IEnumerable<GameObject> BuildInfoStickers
@@ -178,8 +162,8 @@
                 return cachedEarlyAccessStickers = x.ToArray();
             }
         }
-        static GameObject[] cachedNewStickers;
-        private static IEnumerable<GameObject> NewStickers => cachedNewStickers ??= Resources.FindObjectsOfTypeAll<GameObject>()
+        static Image[] cachedNewStickers;
+        private static IEnumerable<Image> NewStickers => cachedNewStickers ??= Resources.FindObjectsOfTypeAll<Image>()
             .Where(o => o.name is "Image_NEW").ToArray();
 
 

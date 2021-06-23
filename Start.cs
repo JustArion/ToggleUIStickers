@@ -3,7 +3,7 @@ using System;
 using Dawn.Stickers;
 using MelonLoader3::MelonLoader;
 
-[assembly: MelonInfo(typeof(Start), Start.MODID, "1.0.0",  "arion#1223", "https://github.com/Arion-Kun/ToggleUIStickers/releases/latest")]
+[assembly: MelonInfo(typeof(Start), Start.MODID, "1.0.1",  "arion#1223", "https://github.com/Arion-Kun/ToggleUIStickers/releases/latest")]
 [assembly: MelonColor(ConsoleColor.DarkCyan)]
 [assembly: MelonGame("VRChat", "VRChat")]
 

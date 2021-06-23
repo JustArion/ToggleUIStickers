@@ -36,9 +36,6 @@ namespace Dawn.Utilities
             PreviousResult = UpdateState;
         }
 
-        /// <summary>
-        /// Typically used OnUiManagerInit
-        /// </summary>
         public void ForceUpdate(bool UpdateState)
         {
             if (UpdateState) OnTrue?.Invoke();
