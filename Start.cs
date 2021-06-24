@@ -3,7 +3,7 @@ using System;
 using Dawn.Stickers;
 using MelonLoader3::MelonLoader;
 
-[assembly: MelonInfo(typeof(Start), Start.MODID, "1.0.1",  "arion#1223", "https://github.com/Arion-Kun/ToggleUIStickers/releases/latest")]
+[assembly: MelonInfo(typeof(Start), Start.MODID, "1.0.2",  "arion#1223", "https://github.com/Arion-Kun/ToggleUIStickers/releases/latest")]
 [assembly: MelonColor(ConsoleColor.DarkCyan)]
 [assembly: MelonGame("VRChat", "VRChat")]
 
@@ -39,8 +39,8 @@ namespace Dawn.Stickers
             
             
             _UseVRCPlusStickers = modCategory.CreateEntry("VRCPlus", false, "VRC+") as MelonPreferences_Entry<bool>;
-            _UseBuildInfoStickers = modCategory.CreateEntry("BuildInfo", false, "Build Info") as MelonPreferences_Entry<bool>;
-            _UseEarlyAccessStickers = modCategory.CreateEntry("EarlyAccess", false, "Early Access") as MelonPreferences_Entry<bool>;
+            _UseBuildInfoStickers = modCategory.CreateEntry("BuildInfo", true, "Build Info") as MelonPreferences_Entry<bool>;
+            _UseEarlyAccessStickers = modCategory.CreateEntry("EarlyAccess", true, "Early Access") as MelonPreferences_Entry<bool>;
             _UseNewStickers = modCategory.CreateEntry("New", false, "New") as MelonPreferences_Entry<bool>;
         }
 
